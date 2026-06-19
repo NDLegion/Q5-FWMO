@@ -1,0 +1,22 @@
+# Game Automation Tools - Requirements
+# Install with: pip install -r requirements.txt
+ 
+# Core automation
+pyautogui==0.9.53
+keyboard==0.13.5
+pydirectinput==1.0.2
+pynput==1.7.6
+ 
+# Image processing
+Pillow==10.0.0
+opencv-python==4.8.0.76
+numpy==1.24.3
+ 
+# GUI (usually pre-installed with Python)
+# tkinter is built-in on Windows
+ 
+# Optional - for advanced features
+# scipy==1.11.2  # For advanced image processing
+ 
+# Development
+# pytest==7.4.0  # For testing (optional)

@@ -1,0 +1,193 @@
+
+Quick start · MD
+# Quick Start Guide 🚀
+ 
+## 5-Minute Setup
+ 
+### Step 1: Install Python
+- Download Python 3.10+ from python.org
+- ✅ Check "Add Python to PATH" during installation
+### Step 2: Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+ 
+### Step 3: Find Your Coordinates
+Run the cursor logger to identify click points:
+```bash
+python cursor.py
+```
+Click on screen → it prints coordinates. **Write these down!**
+ 
+### Step 4: Update Configuration
+Open the tool script and update coordinates at the top:
+```python
+CHECK_X, CHECK_Y = YOUR_X, YOUR_Y  # Replace with your coordinates
+```
+ 
+### Step 5: Test It!
+```bash
+python oranges_1_0.py  # Or whichever tool you want
+```
+ 
+---
+ 
+## Choosing the Right Tool
+ 
+### Use **ORANGE PICKER** if you need to:
+- ✅ Detect circular objects on screen
+- ✅ Drag them to a specific location
+- ✅ Repeat many times automatically
+- ✅ Handle objects placed close together
+### Use **MILK 6.13** if you need to:
+- ✅ Detect a color trigger
+- ✅ Perform an action when color appears
+- ✅ Stop when another color disappears
+- ✅ Visual feedback overlay
+### Use **WOOD CLICKER** if you need to:
+- ✅ Rapid clicking when color appears
+- ✅ Simple on/off triggering
+- ✅ Minimal configuration
+### Use **CURSOR LOGGER** to:
+- ✅ Find exact coordinates of points
+- ✅ Calibrate other tools
+- ✅ Verify color values
+---
+ 
+## Common First-Time Problems
+ 
+### Problem: "ModuleNotFoundError: No module named 'cv2'"
+**Solution:**
+```bash
+pip install opencv-python
+```
+ 
+### Problem: "Nothing is happening when I run the script"
+**Solution:**
+1. Make sure game window is in focus
+2. Run `cursor.py` to verify coordinates
+3. Check that colors match (lighting may be different)
+### Problem: "Script runs but tool doesn't activate"
+**Solution:**
+1. Check tool is in correct game state (e.g., E icon visible)
+2. Use `cursor.py` to verify exact color at your coordinate
+3. Increase `TOLERANCE` value slightly if color is close
+### Problem: "Script activates but action is wrong"
+**Solution:**
+1. Verify `DROP_ZONE_CENTER` or target coordinates
+2. Test one action at a time manually
+3. Check if there are multiple instances of the tool running
+---
+ 
+## Testing Checklist
+ 
+Before using on real account:
+ 
+- [ ] Installed all dependencies without errors
+- [ ] Found correct coordinates using cursor.py
+- [ ] Updated script configuration with YOUR coordinates
+- [ ] Ran script in isolation/test environment
+- [ ] Watched first 5 cycles manually to verify behavior
+- [ ] No error messages in console
+- [ ] Verified anti-cheat won't detect it (added randomization)
+- [ ] Backed up original script as "script_backup.py"
+---
+ 
+## Performance Tips
+ 
+### Speed Up Detection
+```python
+DETECTION_PAUSE = 0.02  # Faster (was 0.03) - trade: CPU usage
+```
+ 
+### Improve Reliability
+```python
+TOLERANCE = 15  # More forgiving color matching (was 10)
+```
+ 
+### Reduce False Positives
+```python
+MIN_ORANGE_AREA = 2000  # Only detect larger objects
+POSITION_TOLERANCE = 120  # Bigger exclusion zone
+```
+ 
+---
+ 
+## Safety Tips ⚠️
+ 
+1. **Always test in isolation first**
+   - Use a test account or offline mode
+   - Run for 5-10 minutes to verify behavior
+2. **Add variance to avoid detection**
+```python
+   import random
+   delay = 1.5 + random.uniform(-0.2, 0.2)  # ±200ms variance
+   time.sleep(delay)
+```
+ 
+3. **Don't run 24/7**
+   - Use in 30-60 minute sessions
+   - Take breaks between sessions
+4. **Monitor game logs/reports**
+   - Keep an eye for any warnings
+   - Stop immediately if flagged
+5. **Keep a backup**
+   - Save working configuration
+   - Test updates on backup first
+---
+ 
+## Useful Modifications
+ 
+### Add Logging
+```python
+import logging
+ 
+logging.basicConfig(
+    filename='automation.log',
+    level=logging.DEBUG,
+    format='%(asctime)s - %(message)s'
+)
+ 
+logging.info(f"Picked orange at {pos}")
+```
+ 
+### Add Break Timer
+```python
+if cycle_count % 50 == 0:  # Every 50 cycles
+    print("Taking break...")
+    time.sleep(30)
+```
+ 
+### Add Window Focus Check
+```python
+import pygetwindow as gw
+ 
+game_window = gw.getWindowsWithTitle('GTA')[0]
+if not game_window.isActive:
+    print("Game not in focus!")
+    running = False
+```
+ 
+---
+ 
+## Getting Help
+ 
+1. **Check the README.md** - Most issues are documented there
+2. **Use cursor.py to debug** - Verify every coordinate
+3. **Check your coordinates** - 90% of issues are wrong coordinates
+4. **Check lighting** - Brightness changes affect color detection
+5. **Increase TOLERANCE** - Sometimes colors are slightly different
+---
+ 
+## Next Steps
+ 
+1. Get your tool working perfectly in test environment
+2. Run for 10-15 minutes to verify stability
+3. Add randomization to avoid detection (see Safety Tips)
+4. Use in short sessions with breaks
+5. Keep updated if new anti-cheat versions arrive
+---
+ 
+**Ready?** Pick your tool and get started! 🚀
+ 
+Good luck!

@@ -409,7 +409,7 @@ mask = cv2.dilate(mask, separation_kernel, iterations=1)
 ---
  
 **Last Updated:** June 2026  
-**Author:** Andriy (Python Game Automation)  
+**Author:** NDLEGION (Python Game Automation)  
 **Status:** Stable (v1.0)
  
 ---

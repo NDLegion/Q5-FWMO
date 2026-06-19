@@ -2,7 +2,7 @@
 
 # Game Automation Tools Suite 🤖
  
-A collection of Python-based automation scripts for game interaction, designed for **GTA V RP servers** and similar game environments. These tools provide reliable color-based triggering, object detection, and interactive automation.
+A collection of Python-based automation scripts for game interaction, designed for **RP servers** and similar game environments. These tools provide reliable color-based triggering, object detection, and interactive automation.
  
 **⚠️ Disclaimer:** These tools are for personal use and educational purposes. Use responsibly and ensure compliance with game terms of service and anti-cheat policies.
  
